@@ -6,7 +6,7 @@ const player = new Player(iframe);
 const localStorageKey = 'videoplayer-current-time';
 const videoPlayerCurrentTime = JSON.parse(
   localStorage.getItem(localStorageKey)
-).seconds;
+)?.seconds;
 
 player.on('play', function () {
   console.log('played the video!');
@@ -16,7 +16,7 @@ player.on(
   'timeupdate',
   throttle(data => {
     localStorage.setItem(localStorageKey, JSON.stringify(data));
-    console.log('current player time (seconds): ', Math.floor(data.seconds));
+    console.log('current player time (seconds): ', Math.floor(data?.seconds));
   }, 1000)
 );
 
