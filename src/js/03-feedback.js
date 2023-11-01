@@ -20,7 +20,6 @@ feedbackForm.addEventListener(
 feedbackForm.addEventListener('submit', handleSubmit);
 
 function handleInput(evt) {
-  //   console.log('input evt: ', evt);
   const form = evt.currentTarget;
   const email = form?.elements?.email?.value;
   const message = form?.elements?.message?.value;
@@ -29,8 +28,6 @@ function handleInput(evt) {
     email,
     message,
   };
-
-  //   console.log('state: ', state);
 
   localStorage.setItem(localStorageKey, JSON.stringify(state));
 }
